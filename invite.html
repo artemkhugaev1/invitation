@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Приглашение</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: Arial, sans-serif;
+      background: url("background.jfif") no-repeat center center fixed;
+      background-size: cover;
+      transition: background 0.5s ease-in-out;
+    }
+
+    h1 {
+      color: #fff;
+      font-size: 2em;
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.4);
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+
+    .options {
+      margin-bottom: 20px;
+      background: rgba(0,0,0,0.4);
+      padding: 15px 20px;
+      border-radius: 10px;
+    }
+
+    .options label {
+      display: block;
+      margin: 10px 0;
+      font-size: 1.2em;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background-color: #ff6b81;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff4757;
+    }
+
+    .message {
+      margin-top: 20px;
+      padding: 15px 25px;
+      background-color: rgba(255,255,255,0.9);
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      font-size: 1.2em;
+      display: none;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Маша, приглашаю вас на ланч в <b>Ukusno</b> в эту пятницу</h1>
+
+  <div class="options">
+    <label><input type="radio" name="answer" value="Да"> Да</label>
+    <label><input type="radio" name="answer" value="Конечно да!"> Конечно да!</label>
+  </div>
+
+  <button onclick="sendAnswer()">Отправить ответ</button>
+
+  <div class="message" id="message">
+    @Hugabossnature ждёт вас в телеграмме для обсуждения оставшихся тонкостей 💬
+  </div>
+
+  <script>
+    function sendAnswer() {
+      const selected = document.querySelector('input[name="answer"]:checked');
+      const message = document.getElementById("message");
+      if (selected) {
+        // Меняем фон на pivo.jfif
+        document.body.style.background = 'url("pivo.jpg") no-repeat center center fixed';
+        document.body.style.backgroundSize = "cover";
+        // Показываем сообщение
+        message.style.display = "block";
+      } else {
+        alert("Пожалуйста, выберите вариант ответа!");
+      }
+    }
+  </script>
+</body>
+</html>
